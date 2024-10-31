@@ -1,0 +1,25 @@
+<?php
+/**
+ * PluginsCorner - https://pluginscorner.com.com
+ *
+ * @package pluco-membership
+ */
+
+use \PLCODashboard\admin\classes\PLCO_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+
+<li class="plco-collection-item plco-topic-content plco-table-topic col s12">
+	<#= model.get('content') #>
+</li>
+<li class="plco-collection-item plco-table-replies-container plco-col plco-s12">
+	<h6>Replies</h6>
+	<ul class="plco-collection plco-table-replies"></ul>
+	<a href="javascript:void(0)" class="btn plco-add-reply green"><?php _e( 'Add Reply', PLCO_Const::T ) ?></a>
+</li>
+

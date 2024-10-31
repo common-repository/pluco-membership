@@ -1,0 +1,26 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div>
+    <#= model.get("name") #>
+    <# if(!is_default) { #>
+        <a href="javascript:void(0)" class="secondary-content plco-delete-role">
+            <i class="material-icons red-text">delete</i>
+        </a>
+        <a href="#roles/<#= model.get('ID') #>" class="secondary-content plco-edit-role">
+            <i class="material-icons">edit</i>
+        </a>
+    <# } #>
+</div>

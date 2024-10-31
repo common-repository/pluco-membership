@@ -1,0 +1,22 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-dashboard
+ */
+
+use PLCODashboard\admin\classes\PLCO_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<h5 class="plco-title"><?php _e( 'Support', PLCO_Const::T ) ?></h5>
+<h6><?php _e( 'In Order to have access to the direct support you need be logged into your account. Please go to the dashboard and log into your account. Otherwise please open a ticket on the plugin repository on wordpress.org', PLCO_Const::T ) ?>
+	<a href="admin.php?page=plco_dashboard#dashboard"><?php _e( 'dashboard ', PLCO_Const::T ) ?></a>
+	<?php _e( 'and log into your account. Otherwise please open a ticket on the plugin repository on wordpress.org ', PLCO_Const::T ) ?>
+	<a target="_blank" href="https://wordpress.org/plugins/pluco-membership/"><?php _e( 'Wordpress.org', PLCO_Const::T ) ?></a>
+</h6>
+

@@ -1,0 +1,55 @@
+<?php
+/**
+ * PluginsCorner - https://pluginscorner.com.com
+ *
+ * @package pluco-membership
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+use PLCODashboard\admin\classes\PLCO_Const;
+
+?>
+<div class="card sticky-action hoverable">
+	<div class="card-image waves-effect waves-block waves-light">
+<!--		<img class="activator" src="<#= model.get('image_url') #>">-->
+		<img class="activator" src="<#= model.get('img') ?? 'https://materializecss.com/images/office.jpg' #>">
+	</div>
+	<div class="card-content">
+		<span class="card-title activator grey-text text-darken-4"><#= model.get('name') #>
+				<i class="material-icons right">arrow_drop_up</i>
+		</span>
+		<p>
+			<#= model.get('description') #>
+		</p>
+	</div>
+	<# if( model.get( 'state' ) !== 'development' ) { #>
+		<div class="card-action">
+			<# if( model.get( 'has_access' ) ) { #>
+				<# if( ! model.get( 'installed' ) ) { #>
+					<a class="right-align waves-effect waves-light btn green" href="javascript:void(0)"><?php _e( 'Install', PLCO_Const::T ) ?></a>
+				<# } else { #>
+					<# if( model.get('no_settings') ) { #>
+						<a class="right-align waves-effect waves-light btn disabled" href="javascript:void(0)"><#= model.get('btn_txt') #></a>
+					<# } else { #>
+						<a class="right-align waves-effect waves-light btn" href="/wp-admin/admin.php?page=<#= model.get('ID') #>"><#= model.get('btn_txt') #></a>
+					<# } #>
+				<# } #>
+			<# } else { #>
+				<# if( model.get( 'has_license_installed' ) ) { #>
+					<a class="right-align  waves-effect waves-light btn" href="http://PluginsCorner.com"><?php _e( 'Add Product To License', PLCO_Const::T ) ?></a>
+				<# } else { #>
+					<a class="right-align waves-effect waves-light btn" target="_blank" href="http://pluginscorner.com"><?php _e( 'Get A License', PLCO_Const::T ) ?></a>
+				<# } #>
+			<# } #>
+		</div>
+	<# } #>
+	<div class="card-reveal">
+        <span class="card-title grey-text text-darken-4"><#= model.get('name') #><i class="material-icons right">close</i></span>
+		<p>
+			<#= model.get('description') #>
+		</p>
+	</div>
+</div>

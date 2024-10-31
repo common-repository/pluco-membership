@@ -1,0 +1,26 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCODashboard\admin\classes\PLCO_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div class="row">
+	<div class="col s12 green-text">
+		<i class="material-icons green-text">check_circle</i>
+		<strong class="plco-connected-text" style="vertical-align: top;"><?php _e( 'Your account is connected', PLCO_Const::T ) ?></strong>
+	</div>
+
+	<div class="col s12 green-text">
+		<i class="material-icons green-text">check_circle</i>
+		<strong class="plco-connected-text" style="vertical-align: top;"><?php _e( 'License:', PLCO_Const::T ) ?> *****-*****-*****-*****-<#= model.get("license_key").slice(-5)#></strong><a href="javascript:void(0)" class="plco-delete-license "><i class="material-icons red-text">delete</i></a>
+	</div>
+</div>

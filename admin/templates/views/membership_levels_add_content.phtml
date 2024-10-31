@@ -1,0 +1,25 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<h5><#= !model.get("ID") ? "<?php _e( 'Add', PLCOM_Const::T ) ?>" : "<?php _e( 'Edit', PLCOM_Const::T ) ?>" #><?php _e( ' Membership Level', PLCOM_Const::T ) ?></h5>
+
+<div class="row">
+	<div class="plco-add-membership-level-content col s8"></div>
+</div>
+<div class="row">
+	<div class="col s12">
+		<a href="#membership_levels" class="btn grey waves-light"><?php _e( 'Back to Membership Levels', PLCOM_Const::T ) ?></a>
+	</div>
+</div>

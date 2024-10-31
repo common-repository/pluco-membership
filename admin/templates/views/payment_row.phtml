@@ -1,0 +1,22 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+<td><#= model.get("user").data.display_name #></td>
+<td><#= model.get("user").data.user_email #></td>
+<td><#= model.get("membership").membership_name #></td>
+<td> <#= model.get("recurrence").amount  #><#= currency.get("sign") #>  <?php echo __( 'Every', PLCOM_Const::T ) ?> <#= model.get("recurrence").recurrence #> <#= recurrence_type.get("name") #>, <#= model.get("recurrence").cycles ? model.get("recurrence").cycles + " Times" : "Until Canceled"#></td>
+<td><#= model.get("subscription_id") #></td>
+<td><#= model.get("transaction_id") #></td>
+<td><#= model.get("payment_type").connection_name === "paypal" ? "Paypal" : "Stripe" #></td>
+<td><#= model.get("created_at") #></td>

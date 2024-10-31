@@ -1,0 +1,18 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<h5><?php _e( 'Membership Levels', PLCOM_Const::T ) ?> <a href="#membership_levels/add" class="btn green right waves-light plco-add-membership-level"><?php _e( 'Add New Membership Level', PLCOM_Const::T ) ?></a></h5>
+
+<div class="row plco-membership-levels-content"></div>

@@ -1,0 +1,56 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCODashboard\admin\classes\PLCO_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div class="col s12 no-padding" xmlns="http://www.w3.org/1999/html">
+	<# if(!model.get("jwt_access")) { #>
+	<p class="red-text lighten-3"><?php _e( 'You are not logged in. In order to have access to the support area and your licenses please log in. Don\'t have an account ? Register one for FREE at ', PLCO_Const::T ) ?><a target="_blank" href="https://pluginscorner.com/register"><strong>https://pluginscorner.com/register</strong></a>. <?php _e( 'Don\'t want to create one ? no worries all other free features are available without needing an account.', PLCO_Const::T ) ?> </p>
+    <br/>
+	<div class="input-field">
+		<input placeholder=" <?php _e( 'Username', PLCO_Const::T ) ?>" name="username"
+		       id="plco-username" type="text" value="" data-field="username" class="validate">
+		<label for="plco-username"><?php _e( 'Username', PLCO_Const::T ) ?></label>
+	</div>
+	<div class="input-field">
+		<input placeholder=" <?php _e( 'Password', PLCO_Const::T ) ?>" data-field="password" name="password"
+		       id="plco-password" type="password" value="" class="validate">
+		<label for="plco-password"><?php _e( 'Password', PLCO_Const::T ) ?></label>
+	</div>
+	<a href="javascript:void(0)" class="btn green waves-light right plco-login">
+		<?php echo __( 'Login', PLCO_Const::T ) ?>
+	</a>
+	<# } else { #>
+        <div class="row">
+            <div class="col s12 green-text">
+                    <i class="material-icons green-text">check_circle</i>
+                    <strong class="plco-connected-text" style="vertical-align: top;"><?php _e( 'Your account is connected', PLCO_Const::T ) ?></strong>
+                    <a href="javascript:void(0)" class="plco-disconnect"><i class="material-icons red-text">sync_disabled</i></a>
+            </div>
+        </div>
+        <div class="input-field">
+            <span><strong><?php _e( 'Add Your License Key', PLCO_Const::T ) ?></strong></span>
+        </div>
+        <a href="javascript:void(0)" class="btn green waves-light left plco-fetch-licenses">
+            <?php echo __( 'Fetch Available Licenses', PLCO_Const::T ) ?>
+        </a>
+        <br/>
+        <br/>
+        <div class="col s12 input-field plco-license-keys-wrapper"></div>
+
+        <p><?php _e( 'Don\'t have any available license ? Don\'t worry tons of features are available for the free version of this plugin. If you need access to Premium Support or need features like ', PLCO_Const::T ) ?><strong><?php _e( 'Invoice Generation, Custom Users Registration fields, Advanced Members Statistics, Integrations with Mailing Services and/or Lead Generation and much more', PLCO_Const::T ) ?> </strong>,  <?php echo __( 'fetch a license at ', PLCO_Const::T ) ?> <a target="_blank" href="http://pluginscorner.com/"><strong>http://pluginscorner.com/</strong></a> <?php echo __( 'for as little as 15$ / month (at an yearly plan)', PLCO_Const::T ) ?></p>
+	<# } #>
+</div>
+<br/>
+<br/>
+<br/>

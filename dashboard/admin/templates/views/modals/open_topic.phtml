@@ -1,0 +1,58 @@
+<?php
+/**
+ * PluginsCorner - https://pluginscorner.com.com
+ *
+ * @package pluco-membership
+ */
+
+use \PLCODashboard\admin\classes\PLCO_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+
+<div class="plco-material">
+	<h3 class="modal-title cpt-pc-no-margin"><?php echo __( 'Open Ticket', PLCO_Const::T ) ?></h3>
+	<br/>
+	<div class="plco-modal-content">
+		<div class="row">
+			<div class="col s4 input-field">
+				<select name="product" id="plco-products" data-field="product" >
+					<option value="" disabled selected>Choose Product</option>
+					<# products.each(function(product) { #>
+					<option value="<#= product.get('ID') #>"><#= product.get('name') #></option>
+					<# }) #>
+				</select>
+				<label for="plco-products">Product</label>
+			</div>
+			<div class="col s8 input-field">
+				<label for="plco-title">Ticket Title</label>
+				<input placeholder="Title" id="plco-title" name="title" value="<#= model.get('title') #>" class="plco-input-change" type="text" data-field="title">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<label><?php echo __( 'Message', PLCO_Const::T ) ?></label>
+				<textarea id="plco-content" name="content" rows="30"></textarea>
+			</div>
+		</div>
+	</div>
+
+	<div class="plco-modal-footer">
+		<div class="row">
+			<div class="col s6">
+				<a href="javascript:void(0)" class="btn grey waves-light left modal-close">
+					<?php echo __( 'Cancel', PLCO_Const::T ) ?>
+				</a>
+			</div>
+			<div class="col s6">
+				<a href="javascript:void(0)" class="btn green waves-light right plco-open-topic">
+					<#= model.get('ID') ? '<?php echo __( 'Edit Ticket', PLCO_Const::T ) ?>' : '<?php echo __( 'Open Ticket', PLCO_Const::T ) ?>' #>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

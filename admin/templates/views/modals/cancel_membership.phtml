@@ -1,0 +1,35 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package pluco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div class="plco-material red lighten-3">
+	<h3 class="modal-title cpt-pc-no-margin white-text"><?php echo __( 'Cancel Membership ?', PLCOM_Const::T ) ?></h3>
+	<div class="modal-content red lighten-3  white-text">
+		<?php _e( 'Are you sure you want to cancel this membership ?', PLCOM_Const::T) ?>
+	</div>
+	<div class="modal-footer red lighten-3">
+		<div class="row">
+			<div class="col s6">
+				<a href="javascript:void(0)" class="btn red waves-light left modal-close">
+					<?php echo __( 'No', PLCOM_Const::T ) ?>
+				</a>
+			</div>
+			<div class="col s6">
+				<a href="javascript:void(0)" class="btn waves-light right plco-yes">
+					<?php echo __( 'Yes', PLCOM_Const::T ) ?>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

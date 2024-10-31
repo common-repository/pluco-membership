@@ -1,0 +1,45 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<h5><?php _e( 'Payments', PLCOM_Const::T ) ?></h5>
+
+<div class="row">
+    <div class="col s12">
+        <table>
+            <thead>
+            <tr>
+                <th><?php _e( 'Member Name', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Member Email', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Purchased Membership', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Recurrence', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Subscription ID', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Transaction ID', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Paid With', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Payment Date', PLCOM_Const::T ) ?></th>
+            </tr>
+            </thead>
+
+            <tbody class="plco-payment-data">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12 right plco-members-pagination">
+
+    </div>
+</div>
+

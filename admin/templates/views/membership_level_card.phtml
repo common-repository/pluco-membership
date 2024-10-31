@@ -1,0 +1,46 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div class="card plco-membership-card small <#= parseInt(model.get("ID")) === 1 ? 'grey lighten-2' : ''#> <#= !model.get('status') ? 'red lighten-4' : '' #>">
+	<div class="card-content ">
+		<span class="card-title blue-text"><strong><span class="green-text"><#= model.get("ID") #></span> <#= model.get("membership_name") #></strong>
+            <# if(PLCO_Membership.globals.pro) { #>
+                <span class="card-color" style="background: <#= model.get('membership_color') #>"></span>
+            <# } #>
+        </span>
+		<h6><strong><?php _e( 'Recurrences', PLCOM_Const::T ) ?></strong></h6>
+		<div class="plco-card-recurrences row">
+			<#= model.get("recurrences").length === 0 ? '<div class="col s12"><p class="plco-recurrence-card"><i class="material-icons red-text">close</i><strong><?php _e( '(Free Membership) No Recurrences Available for this membership ', PLCOM_Const::T ) ?></strong></p></div>' : "" #>
+		</div>
+		<br/>
+		<br/>
+
+	</div>
+	<div class="card-action right">
+		<div class="row">
+			<div class="col s9">
+				<span class="plco-autorenews"><strong><?php _e( 'Auto-Renews: ', PLCOM_Const::T ) ?><#= model.get("autorenew") ? "Yes </strong><i class='material-icons green-text'>check</i>" : "No </strong><i class='material-icons red-text'>close</i>" #></span>
+				<span class="plco-role"><strong><?php _e( 'Role: ', PLCOM_Const::T ) ?><#= role.get("name") #></strong></span>
+			</div>
+			<div class="col s3 right">
+				<# if(model.get("membership_name") !== "Non Member") { #>
+				        <a href="javascript:void(0)" class="<#= has_members ? '' : 'plco-delete-membership-level' #> right"><i class="material-icons <#= has_members ? 'grey-text' : 'red-text' #>">delete</i></a>
+				<# } #>
+				<a href="#membership_levels/<#= model.get("ID") #>" class="plco-edit-membership-level right"><i class="material-icons blue-text">edit</i></a>
+			</div>
+		</div>
+
+	</div>
+</div>

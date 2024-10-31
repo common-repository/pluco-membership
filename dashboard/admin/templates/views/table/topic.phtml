@@ -1,0 +1,31 @@
+<?php
+/**
+ * PluginsCorner - https://pluginscorner.com.com
+ *
+ * @package pluco-membership
+ */
+
+use \PLCODashboard\admin\classes\PLCO_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+
+<td class="plco-table-topic">
+	<a class="plco-expand-topic" href="javascript:void(0)"><i class="material-icons left">expand_more</i></a>
+	<span><#= model.get('title') #></span>
+	<ul class="plco-collection plco-table-content" style="display: none"></ul>
+</td>
+<td>
+	<span><#= model.get('created_at') #></span>
+</td>
+<td>
+	<span><#= parseInt(model.get('status')) === 1 ? 'Opened' : parseInt(model.get('status')) === 2 ? 'Replied' : 'Closed' #></span>
+</td>
+<td>
+	<a href="javascript:void(0)" class="green-text plco-tooltipped <#= parseInt(model.get('status')) === 1 || parseInt(model.get('status')) === 2 ? 'plco-close-topic' : 'plco-reopen-topic' #>" data-position="top" data-tooltip="<#= parseInt(model.get('status')) === 1 ? '<?php _e('Mark ticket as completed', PLCO_Const::T) ?>' : '<?php _e('Re-open ticket', PLCO_Const::T) ?>' #>"><i class="material-icons right "><#= parseInt(model.get('status')) === 1 ? 'done' : parseInt(model.get('status')) === 2 ? 'reply' : 'autorenew' #></i></a>
+	<a href="javascript:void(0)" class="plco-edit-topic"><i class="material-icons right">edit</i></a>
+</td>

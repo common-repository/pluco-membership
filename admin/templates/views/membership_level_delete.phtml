@@ -1,0 +1,16 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div><?php echo __( 'Are you sure you want to delete Membership Level "', PLCOM_Const::T ) ?><strong><#= model.get("membership_name") #></strong>" ?<a href="javascript:void(0)" class="secondary-content plco-no"><?php echo __( 'No', PLCOM_Const::T ) ?></a><a href="javascript:void(0)" class="secondary-content plco-yes"><?php echo __( 'Yes', PLCOM_Const::T ) ?></a></div>

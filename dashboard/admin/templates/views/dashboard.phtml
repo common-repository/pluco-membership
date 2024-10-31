@@ -1,0 +1,47 @@
+<?php
+/**
+ * PluginsCorner - https://pluginscorner.com.com
+ *
+ * @package pluco-membership
+ */
+
+use \PLCODashboard\admin\classes\PLCO_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+
+<div class="row">
+    <div class="col s12">
+        <div id="user-greeting">
+            <h5 class="title"><?php _e( 'Plugins Corner Dashboard', PLCO_Const::T ) ?></h5>
+        </div>
+    </div>
+    <div class="col s8">
+
+        <div id="availableProducts">
+            <h5><?php _e( 'Available Products', PLCO_Const::T ) ?></h5>
+            <div class="row" id="plco-products-container"></div>
+        </div>
+<!--        <div id="futureProducts">-->
+<!--            <h5>--><?php //_e( 'What we\'re working on ...', PLCO_Const::T ) ?><!--</h5>-->
+<!--            <div class="row" id="plco-development-container"></div>-->
+<!--        </div>-->
+
+    </div>
+    <div class="col s3">
+        <div id="plco-license-details" class="col s12">
+            <h5 class="title"><?php _e( 'License Details', PLCO_Const::T ) ?></h5>
+            <div class="plco-license-wrapper"></div>
+        </div>
+        <div id="support" class="col s12">
+            <h5 class="title"><?php _e( 'Support ', PLCO_Const::T ) ?></h5>
+            <p><?php _e( 'Get support for all of your products, directly into the admin area. Click the link below or navigate to ', PLCO_Const::T ) ?><strong><?php _e( ' PluginsCorner -> Support', PLCO_Const::T ) ?></strong></p>
+            <a class="right-align waves-effect waves-light btn"
+               href="admin.php?page=plco_support"><?php _e( 'Get Support', PLCO_Const::T ) ?></a>
+        </div>
+    </div>
+</div>

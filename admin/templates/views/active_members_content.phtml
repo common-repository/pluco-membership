@@ -1,0 +1,82 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<h5><?php _e( 'Active Members', PLCOM_Const::T ) ?></h5>
+
+<div class="row">
+    <div class="col s12">
+        <ul class="plco-tab-members-items"></ul>
+    </div>
+</div>
+
+<br/>
+<br/>
+
+<div class="row">
+	<div class="col s3">
+		<div class="input-field col s12">
+			<input placeholder="<?php _e( 'Search', PLCOM_Const::T ) ?>" name="search"
+			       id="plco-search" type="text" value="<#= model.get("search") #>" class="validate">
+			<label for="plco-search"><?php _e( 'Search', PLCOM_Const::T ) ?></label>
+		</div>
+	</div>
+	<div class="col s2">
+		<div class="input-field col s12">
+			<select class="plcom-membership-levels"></select>
+			<label><?php _e( 'Membership Level', PLCOM_Const::T ) ?></label>
+		</div>
+	</div>
+	<div class="col s2">
+		<div class="input-field col s12">
+			<select class="plcom-complementary">
+				<option value="all" <#= model.get("complementary") === 'all' ? 'selected="selected"' : '' #>><?php _e( 'All', PLCOM_Const::T ) ?></option>
+				<option value="1" <#= parseInt(model.get("complementary")) === 1 ? 'selected="selected"' : '' #>><?php _e( 'Yes', PLCOM_Const::T ) ?></option>
+				<option value="0" <#= parseInt(model.get("complementary")) === 0 ? 'selected="selected"' : '' #>><?php _e( 'No', PLCOM_Const::T ) ?></option>
+			</select>
+			<label><?php _e( 'Is Complementary ?', PLCOM_Const::T ) ?></label>
+		</div>
+	</div>
+</div>
+<div class="row">
+    <div class="col s12">
+        <table>
+            <thead>
+            <tr>
+                <th><?php _e( 'Member Name', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Member Email', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Member Role', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Purchased Membership', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Status', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Member Since', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Next Billing Date', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Memberhip Expires At', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Is Complemantary', PLCOM_Const::T ) ?></th>
+                <th><?php _e( 'Actions', PLCOM_Const::T ) ?></th>
+
+            </tr>
+            </thead>
+
+            <tbody class="plco-members-data">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12 right plco-members-pagination">
+
+    </div>
+</div>
+

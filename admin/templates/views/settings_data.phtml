@@ -1,0 +1,186 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+<div class="col s12">
+
+    <div class="row no-margin">
+        <div class="col s3">
+            <div class="row no-margin">
+                <div class="input-field col s12">
+                    <label for="plco-registration-search"><?php _e( 'Search or Create Registration Page', PLCOM_Const::T ) ?></label>
+                    <input type="text" name="registration" id="plco-registration-search" value="<#= model.get( 'registration_page').name #>" class="plco-autocomplete plco-registration-search">
+                </div>
+            </div>
+        </div>
+        <div class="col s3">
+            <div class="row  no-margin">
+                <div class="input-field col s12">
+                    <label for="plco-account-search"><?php _e( 'Search or Create Account Page', PLCOM_Const::T ) ?></label>
+                    <input type="text" name="account" id="plco-account-search" value="<#= model.get( 'account_page').name #>" class="plco-autocomplete plco-account-search">
+                </div>
+            </div>
+        </div>
+        <div class="col s3">
+            <div class="row no-margin">
+                <div class="input-field col s12">
+                    <label for="plco-success-search"><?php _e( 'Search or Create Success Page', PLCOM_Const::T ) ?></label>
+                    <input type="text" name="success" id="plco-success-search" value="<#= model.get( 'success_page').name #>" class="plco-autocomplete plco-success-search">
+                </div>
+            </div>
+        </div>
+        <div class="col s3">
+            <div class="row no-margin">
+                <div class="input-field col s12">
+                    <label for="plco-cancel-search"><?php _e( 'Search or Create Cancelation Page', PLCOM_Const::T ) ?></label>
+                    <input type="text" name="cancel" id="plco-cancel-search" value="<#= model.get( 'cancel_page').name #>" class="plco-autocomplete plco-cancel-search">
+                </div>
+            </div>
+        </div>
+
+	    <div class="col s3">
+		    <div class="row no-margin">
+			    <div class="input-field col s12">
+				    <label class="plco-flex" for="plco-grace-period">
+					    <?php _e( 'Grace Period (Days)', PLCOM_Const::T ) ?>
+					    <i class="material-icons purple-text tooltipped" data-position="right" data-tooltip='Days after an unpaid membership is suspended <br/>(We recommend a minimum of 2 days because the payment <br/> methods may have delays in sending the IPN)'>info_outline</i>
+				    </label>
+				    <input type="number" class="plco-input" name="grace_period" id="plco-grace-period" value="<#= model.get( 'grace_period') #>" >
+			    </div>
+		    </div>
+	    </div>
+	    <div class="col s3">
+		    <div class="row no-margin">
+			    <div class="input-field col s12">
+				    <label class="plco-flex" for="plco-cancel-period">
+					    <?php _e( 'Cancel Period (Days)', PLCOM_Const::T ) ?>
+					    <i class="material-icons purple-text tooltipped" data-position="right" data-tooltip='Days after an unpaid membership is canceled <br/>(Should be higher than the grace period)'>info_outline</i>
+				    </label>
+				    <input type="number"  class="plco-input" name="cancel_period" id="plco-cancel-period" value="<#= model.get( 'cancel_period') #>" >
+			    </div>
+		    </div>
+	    </div>
+    </div>
+	<div class="row no-margin plcom-extra-data"></div>
+</div>
+
+<div class="col s12">
+	<ul class="collapsible">
+		<li>
+			<div class="collapsible-header">
+				<i class="material-icons">not_interested</i>
+				<h6><?php _e( 'Content Restriction Message', PLCOM_Const::T ) ?></h6>
+			</div>
+			<div class="collapsible-body">
+				<div class="row">
+					<div class="col s12">
+						<?php wp_editor( "", 'content_restriction_message', array(
+							'quicktags'     => false,
+							'media_buttons' => false,
+							'editor_height' => '200px',
+						) ) ?>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="collapsible-header">
+				<i class="material-icons">money_off</i>
+				<h6><?php _e( 'Membership Expired Message', PLCOM_Const::T ) ?></h6>
+			</div>
+			<div class="collapsible-body">
+				<div class="row">
+					<div class="col s12">
+						<?php wp_editor( "", 'expired_restriction_message', array(
+							'quicktags'     => false,
+							'media_buttons' => false,
+							'editor_height' => '200px',
+						) ) ?>
+					</div>
+				</div>
+			</div>
+		</li>
+
+	</ul>
+</div>
+
+<div class="col s12">
+    <div class="row">
+        <div class="col s3 no-padding">
+            <div class="col s12">
+                <p><strong><?php _e( 'Are your members allowed to have multiple memberships ?', PLCOM_Const::T ) ?></strong></p>
+            </div>
+            <div class="col s12">
+                <div class="switch">
+                    <label>
+                        No
+                            <input name="multiple_memberships" class="plco-click plco-allow-multiple-memberships" type="checkbox" <#= model.get('multiple_memberships') ? "checked" : "" #>>
+                        <span class="lever"></span>
+                        Yes
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col s3 no-padding">
+            <div class="col s12">
+                <p><strong><?php _e( 'Are your members allowed to log into the Admin Area ?', PLCOM_Const::T ) ?></strong></p>
+            </div>
+            <div class="col s12">
+                <div class="switch">
+                    <label>
+                        No
+                        <input name="allow_users_to_admin" class="plco-click plco-allow-to-admin" type="checkbox" <#= model.get('allow_users_to_admin') ? "checked" : "" #>>
+                        <span class="lever"></span>
+                        Yes
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col s3 no-padding">
+            <div class="col s12">
+                <p><strong><?php _e( 'Will the admin bar be hidden in the front end ?', PLCOM_Const::T ) ?></strong></p>
+            </div>
+            <div class="col s12">
+                <div class="switch">
+                    <label>
+                        No
+                        <input name="hide_admin_bar" class="plco-click plco-hide-admin-bar" type="checkbox" <#= model.get('hide_admin_bar') ? "checked" : "" #>>
+                        <span class="lever"></span>
+                        Yes
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col s3 no-padding">
+            <div class="col s12">
+                <p><strong><?php _e( 'Can the user delete his own account ?', PLCOM_Const::T ) ?></strong></p>
+            </div>
+            <div class="col s12">
+                <div class="switch">
+                    <label>
+                        No
+                        <input name="allow_account_delete" class="plco-click plco-allow-account-delete" type="checkbox" <#= model.get('allow_account_delete') ? "checked" : "" #>>
+                        <span class="lever"></span>
+                        Yes
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col s12">
+    <a href="javascript:void(0)" class="btn green waves-light right plco-save-settings">
+		<?php echo __( 'Save Settings', PLCOM_Const::T ) ?>
+    </a>
+</div>

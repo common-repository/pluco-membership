@@ -1,0 +1,16 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div><#= model.get("membership_name") #> <#= model.get("membership_name") === "Non Member" ? "(Default Membership)" : ""  #><# if(model.get("membership_name") !== "Non Member") {#><a href="javascript:void(0)" data-id="<#= model.get("ID") #>" class="secondary-content plco-delete-membership-level"><i class="material-icons red-text">delete</i></a><# } #><a href="javascript:void(0)" data-id="<#= model.get("ID") #>" class="secondary-content plco-edit-membership-level"><i class="material-icons">edit</i></a></div>

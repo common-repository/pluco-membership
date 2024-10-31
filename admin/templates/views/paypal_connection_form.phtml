@@ -1,0 +1,73 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div class="row">
+    <div class="col s6">
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="plco-api-key"><?php _e( 'API Key', PLCOM_Const::T ) ?></label>
+                <input type="text" name="api_key" id="plco-api-key" class="plco-input" value="<#= model.get("api_key") #>"/>
+            </div>
+        </div>
+    </div>
+    <div class="col s6">
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="plco-api-secret"><?php _e( 'API Secret Key', PLCOM_Const::T ) ?></label>
+                <input type="text" name="api_secret" id="plco-api-secret" class="plco-input" value="<#= model.get("api_secret") #>"/>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 no-padding">
+        <div class="col s12">
+            <h6>
+	            <strong><?php _e( 'Instant Payment Notification (IPN) URL', PLCOM_Const::T ) ?></strong>
+	            <i class="material-icons purple-text tooltipped" data-tooltip="Payments will NOT be processed without setting up your IPN. Please follow the setup text below carefully !">info_outline</i>
+            </h6>
+	        <p>
+		        <?php _e('Navigate to', PLCOM_Const::T) ?>
+		        <a target="_blank" href="https://www.<#= this.model.get("sandbox") ? "sandbox" : "" #>.paypal.com/merchantnotification/ipn/preference"><?php _e('Paypal', PLCOM_Const::T) ?></a>
+		        <?php _e(' (Log in if necessary) and click "Turn On IPN" then edit the notification URL by clicking "Edit Settings" and paste the follwong URL:', PLCOM_Const::T) ?>
+	        </p>
+
+            <p class="teal-text"><strong><?php echo PLCOM_Const::plugin_uri() ?>ipn.php?_pm=<#= model.get("connection_name") #></strong></p>
+	        <p>
+		        <?php _e('For any questions you can always open a support ticket', PLCOM_Const::T) ?>
+	        </p>
+        </div>
+    </div>
+    <div class="col s6 no-padding">
+        <div class="col s12">
+            <h6><strong><?php _e( 'Enable Sandbox Mode ?', PLCOM_Const::T ) ?></strong></h6>
+        </div>
+        <div class="col s12">
+            <div class="switch">
+                <label>
+                    No
+                    <input class="plco-sandbox" type="checkbox" <#= this.model.get("sandbox") ? "checked" : "" #>>
+                    <span class="lever"></span>
+                    Yes
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12">
+        <a href="javascript:void(0)" class="btn green waves-light right plco-save-connection">
+		    <?php echo __( 'Save Connection', PLCOM_Const::T ) ?>
+        </a>
+    </div>
+</div>

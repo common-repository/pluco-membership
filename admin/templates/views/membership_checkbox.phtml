@@ -1,0 +1,20 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+
+<label>
+	<input class="plco-protect-check" type="checkbox" <#= checked ? 'checked="checked"' : '' #> />
+	<span><#= model.get("membership_name") #></span>
+</label>

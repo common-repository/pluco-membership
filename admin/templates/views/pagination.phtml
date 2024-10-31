@@ -1,0 +1,33 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<a class="plco-page plco-go-first <#= parseInt(model.get("current_page")) === 1 ? "disabled" : "" #>"  href="javascript:void(0)">
+	<span>
+		<i class="material-icons tooltipped" data-position="left" data-tooltip="Go to first page">first_page</i>
+	</span>
+</a>
+
+<# _.each(pages, function(page) { #>
+	<a class="plco-page plco-go-to-page <#= page === parseInt(model.get("current_page")) ? "disabled" : "" #>" data-number="<#= page #>" href="javascript:void(0)">
+		<span><#= page #></span>
+	</a>
+<# }) #>
+
+<a class="plco-page plco-go-last <#= parseInt(model.get("current_page")) >= number_pages ? "disabled" : "" #>" href="javascript:void(0)">
+	<span>
+		<i class="material-icons tooltipped" data-position="left" data-tooltip="Go to last page">last_page</i>
+	</span>
+
+</a>

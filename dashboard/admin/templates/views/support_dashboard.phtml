@@ -1,0 +1,20 @@
+<?php
+/**
+ * PluginsCorner - https://pluginscorner.com.com
+ *
+ * @package pluco-membership
+ */
+
+use \PLCODashboard\admin\classes\PLCO_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div class="col s12 m8">
+	<h5><?php _e( 'Support', PLCO_Const::T ) ?><a href="javascript:void(0)" class="btn right plco-open-topic"><?php _e( 'Open Ticket', PLCO_Const::T ) ?></a></h5>
+	<br/>
+	<table class="plco-support-table"></table>
+</div>

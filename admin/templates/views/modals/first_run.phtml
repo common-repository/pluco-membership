@@ -1,0 +1,235 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package pluco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div class="plco-material">
+	<h3 class="modal-title cpt-pc-no-margin"><?php echo __( 'Getting Started Guide', PLCOM_Const::T ) ?></h3>
+    <div class="plco-modal-step">
+        <div class="modal-content">
+            <h5><?php _e( 'Information regarding the guide.', PLCOM_Const::T ) ?><span class="right"> <?php _e( 'Step (0 of 4)', PLCOM_Const::T ) ?></span></h5>
+            <br/>
+            <h6><?php _e( 'Thank you for installing our membership plugin. In order to get started we first need to set some things up. This guide will walk you through the following setup:', PLCOM_Const::T ) ?></h6>
+            <h6 class="light-blue-text darken-2"><?php _e( '1. Choosing your pages', PLCOM_Const::T ) ?></h6>
+            <h6 class="plco-tabbed"><?php _e( 'a. Choosing your Registration Page.', PLCOM_Const::T ) ?></h6>
+            <h6 class="plco-tabbed"><?php _e( 'b. Choosing your members Account Page.', PLCOM_Const::T ) ?></h6>
+            <h6 class="plco-tabbed"><?php _e( 'c. Choosing the page members get redirected after they succesfully paid for a memberhip plan.', PLCOM_Const::T ) ?></h6>
+            <h6 class="plco-tabbed"><?php _e( 'd. Choosing the page members get redirected after they canceled their memberhip plan.', PLCOM_Const::T ) ?></h6>
+            <h6 class="light-blue-text darken-2"><?php _e( '2. Miscellaneous Settings  ', PLCOM_Const::T ) ?></h6>
+            <h6 class="plco-tabbed"><?php _e( 'a. Setting up the Content Restriction Message.', PLCOM_Const::T ) ?></h6>
+            <h6 class="plco-tabbed"><?php _e( 'b. Choosing if Multiple memberships are allowed.', PLCOM_Const::T ) ?></h6>
+            <h6 class="plco-tabbed"><?php _e( 'c. Are memberships Auto-renewed', PLCOM_Const::T ) ?></h6>
+            <h6 class="plco-tabbed"><?php _e( 'd. Are members allowed to the admin area ?', PLCOM_Const::T ) ?></h6>
+            <h6 class="light-blue-text darken-2"><?php _e( '3. Setting up your first membership levels (Optional)', PLCOM_Const::T ) ?></h6>
+            <h6 class="light-blue-text darken-2"><?php _e( '4. Setting up your first payment method (Optional)', PLCOM_Const::T ) ?></h6>
+
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col s6">
+                    <a href="javascript:void(0)" class="btn red waves-light left plco-modal-skip">
+			            <?php echo __( 'Skip', PLCOM_Const::T ) ?>
+                    </a>
+                </div>
+                <div class="col s6">
+                    <a href="javascript:void(0)" class="btn waves-light right plco-modal-next-step">
+					    <?php echo __( 'Next', PLCOM_Const::T ) ?>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="plco-modal-step">
+        <div class="modal-content">
+            <h5 class="cpt-pc-teal-text"><?php _e( 'Choosing your pages', PLCOM_Const::T ) ?><span class="right"> <?php _e( 'Step (1 of 4)', PLCOM_Const::T ) ?></span></h5>
+            <br/>
+            <div class="row no-margin">
+                <div class="col s6">
+                    <div class="row no-margin">
+                        <div class="input-field col s12">
+                            <label for="plco-registration-search"><?php _e( 'Search/Create Registration Page', PLCOM_Const::T ) ?></label>
+                            <input type="text" name="registration" id="plco-registration-search" value="<#= this.data.general_data.get( 'registration_page').name #>" class="plco-autocomplete plco-registration-search">
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="row  no-margin">
+                        <div class="input-field col s12">
+                            <label for="plco-account-search"><?php _e( 'Search/Create Account Page', PLCOM_Const::T ) ?></label>
+                            <input type="text" name="account" id="plco-account-search" value="<#= this.data.general_data.get( 'account_page').name #>" class="plco-autocomplete plco-account-search">
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="row no-margin">
+                        <div class="input-field col s12">
+                            <label for="plco-success-search"><?php _e( 'Search/Create Success Page', PLCOM_Const::T ) ?></label>
+                            <input type="text" name="success" id="plco-success-search" value="<#= this.data.general_data.get( 'success_page').name #>" class="plco-autocomplete plco-success-search">
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="row no-margin">
+                        <div class="input-field col s12">
+                            <label for="plco-cancel-search"><?php _e( 'Search/Create Cancelation Page', PLCOM_Const::T ) ?></label>
+                            <input type="text" name="cancel" id="plco-cancel-search" value="<#= this.data.general_data.get( 'cancel_page').name #>" class="plco-autocomplete plco-cancel-search">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="cpt-pc-row">
+
+                <div class="cpt-pc-col cpt-pc-s6">
+                    <a href="javascript:void(0)" class="btn waves-light left plco-modal-prev-step">
+			            <?php echo __( 'Back', PLCOM_Const::T ) ?>
+                    </a>
+                </div>
+                <div class="cpt-pc-col cpt-pc-s6">
+                    <a href="javascript:void(0)" class="btn waves-light right plco-modal-next-step">
+					    <?php echo __( 'Next', PLCOM_Const::T ) ?>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="plco-modal-step">
+        <div class="modal-content">
+            <h5 class="cpt-pc-teal-text"><?php _e( 'Miscellaneous Settings', PLCOM_Const::T ) ?><span class="right"> <?php _e( 'Step (2 of 4)', PLCOM_Const::T ) ?></span></h5>
+            <br/>
+            <h6><?php _e( 'Please set up your Miscellaneous Settings', PLCOM_Const::T ) ?></h6>
+            <br/>
+            <div class="row">
+                <div class="col s12">
+                    <h6><strong><?php _e( 'Content Restriction Message', PLCOM_Const::T ) ?></strong></h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+			        <?php wp_editor( "", 'content_restriction_message', array(
+				        'quicktags'     => false,
+				        'media_buttons' => false,
+				        'editor_height' => '100px',
+			        ) ) ?>
+                </div>
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="row">
+                <div class="col s6 no-padding">
+                    <div class="col s12">
+                        <h6><strong><?php _e( 'Are your members allowed to have multiple memberships ?', PLCOM_Const::T ) ?></strong></h6>
+                    </div>
+                    <div class="col s12">
+                        <div class="switch">
+                            <label>
+                                No
+                                <input class="plco-allow-multiple-memberships" type="checkbox" <#= this.data.general_data.get('multiple_memberships') ? "checked" : "" #>>
+                                <span class="lever"></span>
+                                Yes
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6 no-padding">
+                    <div class="col s12">
+                        <h6><strong><?php _e( 'Are your members allowed to log into the Admin Area ?', PLCOM_Const::T ) ?></strong></h6>
+                    </div>
+                    <div class="col s12">
+                        <div class="switch">
+                            <label>
+                                No
+                                <input class="plco-allow-to-admin" type="checkbox" <#= this.data.general_data.get('allow_users_to_admin') ? "checked" : "" #>>
+                                <span class="lever"></span>
+                                Yes
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <div class="cpt-pc-row">
+
+                <div class="cpt-pc-col cpt-pc-s6">
+                    <a href="javascript:void(0)" class="btn waves-light left plco-modal-prev-step">
+						<?php echo __( 'Back', PLCOM_Const::T ) ?>
+                    </a>
+                </div>
+                <div class="cpt-pc-col cpt-pc-s6">
+                    <a href="javascript:void(0)" class="btn waves-light right plco-modal-next-step">
+			            <?php echo __( 'Next', PLCOM_Const::T ) ?>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="plco-modal-step">
+        <div class="modal-content">
+            <h5 class="cpt-pc-teal-text"><?php _e( 'Setting up your first membership levels (Optional)', PLCOM_Const::T ) ?><span class="right"> <?php _e( 'Step (3 of 4)', PLCOM_Const::T ) ?></span></h5>
+            <ul class="collection with-header plco-membership-levels">
+                <li class="collection-header"><h6><?php _e( 'Membership Levels', PLCOM_Const::T ) ?></h6></li>
+            </ul>
+            <a href="javascript:void(0)" data-id="add" class="btn teal waves-light right plco-add-level">
+				<?php echo __( 'Add Level', PLCOM_Const::T ) ?>
+            </a>
+            <div class="plco-meembership-level-form"></div>
+
+        </div>
+        <div class="modal-footer">
+            <div class="cpt-pc-row">
+
+                <div class="cpt-pc-col cpt-pc-s6">
+                    <a href="javascript:void(0)" class="btn waves-light left plco-modal-prev-step">
+						<?php echo __( 'Back', PLCOM_Const::T ) ?>
+                    </a>
+                </div>
+                <div class="cpt-pc-col cpt-pc-s6">
+                    <a href="javascript:void(0)" class="btn waves-light right plco-modal-next-step">
+						<?php echo __( 'Next', PLCOM_Const::T ) ?>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="plco-modal-step">
+        <div class="modal-content">
+            <h5 class="cpt-pc-teal-text"><?php _e( 'Setting up your first payment method (Optional)', PLCOM_Const::T ) ?><span class="right"> <?php _e( 'Step (4 of 4)', PLCOM_Const::T ) ?></span></h5>
+            <ul class="collection with-header plco-available-connections">
+                <li class="collection-header"><h6><?php _e( 'Available Connections', PLCOM_Const::T ) ?></h6></li>
+            </ul>
+
+        </div>
+        <div class="modal-footer">
+            <div class="cpt-pc-row">
+
+                <div class="cpt-pc-col cpt-pc-s6">
+                    <a href="javascript:void(0)" class="btn waves-light left plco-modal-prev-step">
+						<?php echo __( 'Back', PLCOM_Const::T ) ?>
+                    </a>
+                </div>
+                <div class="cpt-pc-col cpt-pc-s6">
+                    <a href="javascript:void(0)" class="btn green waves-light right plco-save">
+						<?php echo __( 'Finish', PLCOM_Const::T ) ?>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

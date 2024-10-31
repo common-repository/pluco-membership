@@ -1,0 +1,34 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<#= is_in_metabox ? '<h7 class="plco-protection-info"><?php _e( 'Protection info: ', PLCOM_Const::T ) ?>' : '' #>
+
+	<# if(model.get("membership_levels").length) { #>
+		<span class="plco-material">
+			<i class="material-icons green-text tooltipped" data-position="left" data-tooltip="Protected">security</i>
+			<a class="plco-protect-modal" href="javascript:void(0)">
+				<i class="material-icons blue-text tooltipped" data-position="left" data-tooltip="Protect!"> edit</i>
+			</a>
+		</span>
+	<# } else { #>
+		<span class="plco-material">
+			<i class="material-icons red-text text-lighten-2 tooltipped" data-position="left" data-tooltip="Publicly Accessible">public</i>
+			<a class="plco-protect-modal" href="javascript:void(0)">
+				<i class="material-icons green-text tooltipped" data-position="left" data-tooltip="Protect!">add_circle_outline</i>
+			</a>
+		</span>
+	<# } #>
+
+<#= is_in_metabox ? '</h7>' : '' #>

@@ -1,0 +1,29 @@
+<?php
+/**
+ * PluginsCorner - https://pluginscorner.com.com
+ *
+ * @package pluco-membership
+ */
+
+use \PLCODashboard\admin\classes\PLCO_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<tr>
+	<th>
+		<strong><?php _e( 'Title', PLCO_Const::T ) ?></strong>
+	</th>
+	<th>
+		<strong><?php _e( 'Created', PLCO_Const::T ) ?></strong>
+	</th>
+	<th>
+		<strong><?php _e( 'Status', PLCO_Const::T ) ?></strong>
+	</th>
+	<th class="right">
+		<strong><?php _e( 'Actions', PLCO_Const::T ) ?></strong>
+	</th>
+</tr>

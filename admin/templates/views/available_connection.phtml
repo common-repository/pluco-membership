@@ -1,0 +1,25 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div class="plco-connection">
+    <img height="50" src="<?php echo PLCOM_Const::plugin_uri() . '/images/<#= model.get("handle") #>-connection.png'  ?>"><span class="plco-connection-name"><#= model.get("name") #> <#= added ? "<span class='plco-connected green-text'>CONNECTED</span>" : ""#></span>
+    <# if(added) { #>
+    <a href="javascript:void(0)" class="secondary-content plco-delete-connection"><i class="material-icons red-text">delete</i></a><a href="javascript:void(0)" class="secondary-content plco-edit-connection"><i class="material-icons">edit</i></a>
+    <# } else { #>
+    <a href="javascript:void(0)" class="secondary-content plco-add-connection"><i class="material-icons green-text">add_circle_outline</i></a>
+    <# } #>
+</div>
+
+<div class="plco-connection-form"></div>

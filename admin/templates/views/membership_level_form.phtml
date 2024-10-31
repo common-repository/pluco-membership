@@ -1,0 +1,103 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div class="col s12">
+    <div class="row">
+        <div class="input-field col s<#= !model.get('ID') ? '5' : model.get('ID') === 1 ? '4' : '5' #>">
+            <input placeholder="<?php _e( 'Membership Level Name', PLCOM_Const::T ) ?>" name="membership_name"
+                   id="plco-membership-name" type="text" value="<#= model.get("membership_name") #>" class="validate">
+            <label for="plco-membership-name"><?php _e( 'Membership Level Name', PLCOM_Const::T ) ?></label>
+        </div>
+
+        <div class="input-field col s3">
+            <select id="plco-roles" class="plco-roles" name="roles"></select>
+            <label><?php _e( 'Wordpress Role to assign to the member', PLCOM_Const::T ) ?></label>
+        </div>
+        <div class="input-field col s2">
+            <div class="col s12 no-padding">
+                <label><?php _e( 'Autorenew Membership', PLCOM_Const::T ) ?></label>
+            </div>
+            <div class="col s12 no-padding">
+                <div class="switch">
+                    <label>
+						<?php echo __( 'No', PLCOM_Const::T ) ?>
+                        <input class="plco-autorenew" name="autorenew" type="checkbox" <#= model.get('autorenew') ?
+                        "checked" : "" #>>
+                        <span class="lever"></span>
+						<?php echo __( 'Yes', PLCOM_Const::T ) ?>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <# if( model.get('ID') !== 1) { #>
+        <div class="input-field col s2">
+            <div class="col s12 no-padding">
+                <label><?php _e( 'Active', PLCOM_Const::T ) ?></label>
+            </div>
+            <div class="col s12 no-padding">
+                <div class="switch">
+                    <label>
+						<?php echo __( 'No', PLCOM_Const::T ) ?>
+                        <input class="plco-status" name="status" type="checkbox" <#= model.get('status') ?
+                        "checked" : "" #>>
+                        <span class="lever"></span>
+						<?php echo __( 'Yes', PLCOM_Const::T ) ?>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <# } #>
+        <# if( model.get('ID') === 1) { #>
+            <div class="input-field col s3">
+                <div class="col s12 no-padding">
+                    <label><?php _e( 'Allow Non Members Registration', PLCOM_Const::T ) ?></label>
+                </div>
+                <div class="col s12 no-padding">
+                    <div class="switch">
+                        <label>
+                            <?php echo __( 'No', PLCOM_Const::T ) ?>
+                            <input class="plco-non-members" name="non-members" type="checkbox" <#= PLCO_Membership.globals.general_data.get('allow_non_members_registration') ?
+                            "checked" : "" #>>
+                            <span class="lever"></span>
+                            <?php echo __( 'Yes', PLCOM_Const::T ) ?>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        <# } #>
+        <div class="row">
+            <div class=" col s12">
+                <ul class="collection with-header plco-recurrences">
+                    <li class="collection-header"><h6><?php _e( 'Recurrences', PLCOM_Const::T ) ?></h6></li>
+                </ul>
+	            <# if( model.get('ID') === 1) { #>
+	            <# } else { #>
+	            <a href="javascript:void(0)" data-id="add"
+	               class="btn teal waves-light right plco-add-recurrence <#= model.get('ID') || model.get('ID') > 1 ? '' : 'disabled' #>">
+		            <?php echo __( 'Add Recurrence', PLCOM_Const::T ) ?>
+	            </a>
+	            <# } #>
+                <div class="plco-recurrence-form col s12"></div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class=" col s12 plco-extra-data">
+
+            </div>
+        </div>
+    </div>
+</div>

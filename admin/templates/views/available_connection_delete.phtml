@@ -1,0 +1,21 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div>
+    <img height="50" src="<?php echo PLCOM_Const::plugin_uri() . '/images/<#= model.get("handle") #>-connection.png'  ?>">
+    <span class="plco-delete-connection-name">
+    <?php echo __( 'Are you sure you want to delete "', PLCOM_Const::T ) ?><strong><#= model.get("name") #></strong>" <?php echo __( 'Payment Method Connection"', PLCOM_Const::T ) ?> ?
+    </span>
+        <a href="javascript:void(0)" class="secondary-content plco-no"><?php echo __( 'No', PLCOM_Const::T ) ?></a><a href="javascript:void(0)" class="secondary-content plco-yes"><?php echo __( 'Yes', PLCOM_Const::T ) ?></a></div>

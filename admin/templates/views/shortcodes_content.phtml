@@ -1,0 +1,43 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<h5><?php _e( 'Shortcodes', PLCOM_Const::T ) ?></h5>
+<br/>
+<br/>
+<div class="row">
+    <div class="plco-settings-wrapper col s12">
+        <div class="row no-margin">
+            <div class="input-field col s3">
+                <label for="plco-account-shortcode"><?php _e( 'Account Form Shortcode', PLCOM_Const::T ) ?></label>
+                <input type="text" name="account_shortcode" id="plco-account-shortcode" value="[plco_account_form]">
+            </div>
+            <div class="input-field col s3">
+                <label class="plco-flex" for="plco-register-shortcode">
+	                <?php _e( 'Register Form Shortcode', PLCOM_Const::T ) ?>
+	                <i class="material-icons purple-text tooltipped" data-position="top" data-tooltip='membership="{ID}" and recurrence="{ID}" can be added to  lock a single membership or recurrence <br/>(No other membership and/or recurrence can be chosen when registering but the shortcode can be <br/> used on different pages with different values or even on the same page with different values). <br/>The ID can be found in the Membership Levels Tab beside the names of the memberships and recurrences. <br/><br/> Ex: [plco_registration_form membership="2"]'>info_outline</i>
+                </label>
+                <input type="text" name="register_shortcode" id="plco-register-shortcode" value="[plco_registration_form]">
+            </div>
+            <div class="input-field col s3">
+                <label for="plco-login-shortcode"><?php _e( 'Login Form Shortcode', PLCOM_Const::T ) ?></label>
+                <input type="text" name="login_shortcode" id="plco-login-shortcode" value="[plcom_login_form]">
+            </div>
+	        <div class="input-field col s3">
+                <label for="plco-content-shortcode"><?php _e( 'Content Restrictions', PLCOM_Const::T ) ?></label>
+                <input type="text" name="content_shortcode" id="plco-content-shortcode" value="[plco_content_restrict]">
+            </div>
+        </div>
+    </div>
+</div>

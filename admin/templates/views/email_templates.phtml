@@ -1,0 +1,118 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div class="col s12">
+	<ul class="collapsible">
+		<li>
+			<div class="collapsible-header">
+				<i class="material-icons">check</i>
+				<h6><?php _e( 'Success Message', PLCOM_Const::T ) ?></h6>
+			</div>
+			<div class="collapsible-body">
+				<div class="row">
+					<div class="input-field col s12">
+						<label for="plco-success-template-subject"><?php _e( 'Success Subject', PLCOM_Const::T ) ?></label>
+						<input type="text" name="success_template_subject" id="plco-success-template-subject"
+						       value="<#= model.get( 'success_template_subject') #>"
+						       class="plco-input plco-success-template-subject">
+					</div>
+					<div class="col s12">
+						<h6><strong><?php _e( 'Success Body', PLCOM_Const::T ) ?></strong></h6>
+					</div>
+					<div class="col s12">
+						<?php wp_editor( "", 'success_template_message', array(
+							'quicktags'     => false,
+							'media_buttons' => false,
+							'editor_height' => '100px',
+						) ) ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+						<a href="javascript:void(0)" class="btn green waves-light plco-save-email-templates">
+							<?php echo __( 'Save Success Message', PLCOM_Const::T ) ?>
+						</a>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="collapsible-header">
+				<i class="material-icons">clear</i>
+				<h6><?php _e( 'Cancelation Message', PLCOM_Const::T ) ?></h6>
+			</div>
+			<div class="collapsible-body">
+				<div class="row">
+					<div class="input-field col s12">
+						<label for="plco-cancel-template-subject"><?php _e( 'Cancel Subject', PLCOM_Const::T ) ?></label>
+						<input type="text" name="cancel_template_subject" id="plco-cancel-template-subject"
+						       value="<#= model.get( 'cancel_template_subject') #>" class="plco-input plco-cancel-template-subject">
+					</div>
+					<div class="col s12">
+						<h6><strong><?php _e( 'Cancel Body', PLCOM_Const::T ) ?></strong></h6>
+					</div>
+					<div class="col s12">
+						<?php wp_editor( "", 'cancel_template_message', array(
+							'quicktags'     => false,
+							'media_buttons' => false,
+							'editor_height' => '100px',
+						) ) ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+						<a href="javascript:void(0)" class="btn green waves-light plco-save-email-templates">
+							<?php echo __( 'Save Cancelation Message', PLCOM_Const::T ) ?>
+						</a>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="collapsible-header">
+				<i class="material-icons">edit</i>
+				<h6><?php _e( 'Action Required Message', PLCOM_Const::T ) ?></h6>
+			</div>
+			<div class="collapsible-body">
+				<div class="row">
+					<div class="input-field col s12">
+						<label for="plco-cancel-template-subject"><?php _e( 'Requires Action Subject', PLCOM_Const::T ) ?></label>
+						<input type="text" name="requires_action_template_subject" id="plco-requirest_action-template-subject"
+						       value="<#= model.get( 'requires_action_template_subject') #>"
+						       class="plco-input plco-requires-action-template-subject">
+					</div>
+					<div class="col s12">
+						<h6><strong><?php _e( 'Requires Action Body', PLCOM_Const::T ) ?></strong></h6>
+					</div>
+					<div class="col s12">
+						<?php wp_editor( "", 'requires_action_template_message', array(
+							'quicktags'     => false,
+							'media_buttons' => false,
+							'editor_height' => '100px',
+						) ) ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+						<a href="javascript:void(0)" class="btn green waves-light plco-save-email-templates">
+							<?php echo __( 'Save Action Required Message', PLCOM_Const::T ) ?>
+						</a>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+

@@ -1,0 +1,36 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+<td><#= model.get("user").data.display_name #></td>
+<td><#= model.get("user").data.user_email #></td>
+<td><#= model.get("user").roles[0] #></td>
+<td><#= model.get("membership").membership_name #></td>
+<td><#= model.get("state") #></td>
+<td><#= model.get("membership").created_at #></td>
+<td><#= model.get("next_billing_date") #></td>
+<td><#= model.get("expires_at") ? model.get("expires_at") : "NEVER" #></td>
+<td><#= parseInt(model.get("complementary")) ? "Yes" : "No" #></td>
+<td>
+    <a class="plco-edit-member" href="#member/<#= model.get('ID')#>">
+        <i class="material-icons green-text tooltipped" data-position="left" data-tooltip="View Membership">remove_red_eye</i>
+    </a>
+	<# if(model.get("state") === "ACTIVE" && model.get("membership").ID > 1) { #>
+    <a class="plco-suspend-membership" href="javascript:void(0)">
+        <i class="material-icons red-text tooltipped" data-position="left" data-tooltip="Suspend Membership & Cancel At Cycle End">block</i>
+    </a>
+	<# } #>
+	<a class="plco-comp-membership" href="javascript:void(0)">
+		<i class="material-icons blue-text tooltipped" data-position="left" data-tooltip="Add Commplementary Membership">all_inclusive</i>
+	</a>
+</td>

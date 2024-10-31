@@ -1,0 +1,50 @@
+<?php
+/**
+ * PluginsCorner - https://pluginscorner.com.com
+ *
+ * @package pluco-membership
+ */
+
+use \PLCODashboard\admin\classes\PLCO_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div class="row plcom-reply-head">
+	<div class="col s5">
+		<span>
+			<strong>
+				<?php _e( 'By:', PLCO_Const::T ); ?> <#= parseInt(model.get('user_id')) === PLCOUtils.globals.license.get('user_id') ? 'You' : model.get('replied_by') #>
+			</strong>
+		</span>
+	</div>
+	<div class="col s4">
+		<span>
+			<strong>
+				<?php _e( 'Added:', PLCO_Const::T ); ?> <#= model.get('created_at') #>
+			</strong>
+		</span>
+	</div>
+
+	<div class="col s2 right">
+		<# if( parseInt(model.get('user_id')) === PLCOUtils.globals.license.get('user_id')) { #>
+		<span>
+				<strong style="display: flex">
+					<?php _e( 'Actions:', PLCO_Const::T ); ?>
+					<a href="javascript:void(0)" class="plco-delete-reply"><i class="material-icons red-text lighten-2 right">delete</i></a>
+					<a href="javascript:void(0)" class="plco-edit-reply"><i class="material-icons right">edit</i></a>
+				</strong>
+			</span>
+		<# } #>
+	</div>
+
+</div>
+<div class="row plcom-reply-content">
+	<div class="col s12">
+		<#= model.get('content') #>
+	</div>
+</div>
+

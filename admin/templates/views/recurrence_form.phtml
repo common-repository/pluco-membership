@@ -1,0 +1,50 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div class="col s12">
+    <div class="row">
+        <div class="input-field col s6">
+            <input placeholder=" <?php _e( 'Amount', PLCOM_Const::T ) ?>" name="amount" id="plco-amount" step="any" type="number" value="<#= model.get("amount") #>" class="validate">
+            <label for="plco-amount"><?php _e( 'Amount', PLCOM_Const::T ) ?></label>
+        </div>
+        <div class="input-field col s6">
+            <select  id="plco-currencies" class="plco-currencies" name="currencies"></select>
+            <label><?php _e( 'Currency', PLCOM_Const::T ) ?></label>
+        </div>
+        <div class="input-field col s2">
+            <input placeholder=" <?php _e( 'Every', PLCOM_Const::T ) ?>" name="recurrence" id="plco-recurrence" type="number" value="<#= model.get("recurrence") #>" class="validate">
+            <label for="plco-recurrence"><?php _e( 'Recurrence', PLCOM_Const::T ) ?></label>
+        </div>
+        <div class="input-field col s4">
+            <select id="plco-recurrence-types" class="plco-recurrence-types" name="recurrence_types"></select>
+        </div>
+        <div class="input-field col s6">
+            <input placeholder=" <?php _e( 'Cycles', PLCOM_Const::T ) ?>" name="cycles" id="plco-cycles" type="number" value="<#= model.get("cycles") #>" class="validate">
+            <label for="plco-amount"><?php _e( 'End Subscription after # of payments (Set 0 for Infinite)', PLCOM_Const::T ) ?></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s11">
+            <a href="javascript:void(0)" class="btn green waves-light right plco-set-recurrence">
+		        <?php echo __( 'Save recurrence', PLCOM_Const::T ) ?>
+            </a>
+        </div>
+        <div class="col s1">
+            <a href="javascript:void(0)" class="btn grey waves-light right plco-close-recurrence">
+			    <?php echo __( 'Close', PLCOM_Const::T ) ?>
+            </a>
+        </div>
+    </div>
+</div>

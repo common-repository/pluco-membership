@@ -1,0 +1,19 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<p class="plco-recurrence-card"><i class="material-icons green-text">call_made</i><strong> <#= model.get("amount") #><#=
+		currency.get("sign") #> <?php echo __( 'Every', PLCOM_Const::T ) ?> <#= model.get("recurrence") #> <#=
+		recurrence_type.get("name") #>, <#= model.get("cycles") ? model.get("cycles") + " Times" : "Until Canceled"#> -
+		<span class="green-text">ID: <#= model.get("ID") #></span></p></strong>

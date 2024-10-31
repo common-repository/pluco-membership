@@ -1,0 +1,26 @@
+<?php
+/**
+ * http://pluginscorner.com
+ *
+ * @package plco-membership
+ */
+
+use \PLCOMembership\admin\classes\PLCOM_Const;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Silence is golden
+}
+
+?>
+
+<div><?php echo __( 'The Member Will Pay', PLCOM_Const::T ) ?> <#= model.get("amount")  #><#= currency.get("sign") #>  <?php echo __( 'Every', PLCOM_Const::T ) ?> <#= model.get("recurrence") #> <#= recurrence_type.get("name") #>, <#= model.get("cycles") ? model.get("cycles") + " Times" : "Until Canceled"#>
+    <# if(level.get('ID') > 1) { #>
+        <# if(parseInt(model.get('members')) === 0 || !model.get('members')) { #>
+            <a href="javascript:void(0)" data-id="<#= model.get('ID') #>" class="secondary-content plco-delete-recurrence <#= parseInt(model.get('members')) > 0 ? 'disabled' : '' #>"><i class="material-icons red-text">delete</i></a>
+            <a href="javascript:void(0)" data-id="<#= model.get('ID') #>" class="secondary-content plco-edit-recurrence"><i class="material-icons">edit</i></a>
+        <# } else { #>
+            <a href="javascript:void(0)" class="secondary-content tooltipped" data-position="top" data-tooltip="<?php echo __( 'Recurrence already registered payments and it cannot be deleted', PLCOM_Const::T ) ?>"><i class="material-icons grey-text">delete</i></a>
+            <a href="javascript:void(0)" class="secondary-content tooltipped" data-position="top" data-tooltip="<?php echo __( 'Recurrence already registered payments and it cannot be edited', PLCOM_Const::T ) ?>"><i class="material-icons grey-text">edit</i></a>
+        <# } #>
+    <# } #>
+</div>
